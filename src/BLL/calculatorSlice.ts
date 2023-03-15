@@ -1,84 +1,97 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface CalculatorState {
+    displayValue: string;
+    operator: string | null;
+    previousValue: string | null;
+    currentValue: string;
+}
 
-const initialState: initialStateType = {
-    results: "0",
+const initialState: CalculatorState = {
+    displayValue: "0",
     operator: null,
-    prevNumber: null,
-    newNumber: null,
-    isDecimal: false
-}
+    previousValue: null,
+    currentValue: "0",
+};
 
-interface initialStateType {
-    results: string
-    operator: string | null
-    prevNumber: number | null
-    newNumber: number | null
-    isDecimal: boolean
-}
+const evaluate = (a: string, b: string, operator: string): string => {
+    const numA = parseFloat(a);
+    const numB = parseFloat(b);
+    switch (operator) {
+        case "+":
+            return (numA + numB).toString();
+        case "-":
+            return (numA - numB).toString();
+        case "x":
+            return (numA * numB).toString();
+        case "/":
+            return (numA / numB).toString();
+        default:
+            return b;
+    }
+};
 
-export const calculatorSlice = createSlice({
+const calculatorSlice = createSlice({
     name: "calculator",
     initialState,
     reducers: {
-        updateResultValue: (state, action: PayloadAction<string>) => {
-            state.results = action.payload
-        },
-        setOperator: (state, action: PayloadAction<string>) => {
-            state.operator = action.payload
-            state.prevNumber = parseFloat(state.results)
-            state.isDecimal = false
-        },
-        // clearCalculator: (state) => {
-        //     state.results = "0"
-        //     state.operator = null
-        //     state.prevNumber = null
-        //     state.newNumber = null
-        //     state.isDecimal = false
-        // },
-        calculateRes: (state) => {
-            state.newNumber = parseFloat(state.results)
-
-            switch (state.operator) {
-                case "+":
-                    state.results = (state.prevNumber! + state.newNumber!).toString()
-                    break;
-                case "-":
-                    state.results = (state.prevNumber! - state.newNumber!).toString()
-                    break;
-                case "*":
-                    state.results = (state.prevNumber! * state.newNumber!).toString()
-                    break;
-                case "/":
-                    state.results = (state.prevNumber! / state.newNumber!).toString()
-                    break;
-                default:
-                    state.results = "0"
-            }
-            state.operator = null
-            state.prevNumber = null
-            state.newNumber = null
-            state.isDecimal = false
-        },
-        toggleDecimal: (state) => {
-            if (!state.isDecimal) {
-                state.results += "."
-                state.isDecimal = true
-            }
-        },
-        appendNumber: (state, action: PayloadAction<string>) => {
-            if (state.results === "0" || state.operator !== null) {
-                state.results = action.payload
+        inputDigit: (state, action: PayloadAction<string>) => {
+            if (state.currentValue === "0") {
+                state.currentValue = action.payload.toString();
             } else {
-                state.results += action.payload
+                state.currentValue += action.payload.toString();
+            }
+            state.displayValue = state.currentValue;
+        },
+        inputDecimal: (state) => {
+            if (!state.currentValue.includes(".")) {
+                state.currentValue += ".";
+                state.displayValue = state.currentValue;
             }
         },
-    }
-})
-export const {
-    updateResultValue, setOperator,
-     calculateRes,
-    toggleDecimal, appendNumber
-} = calculatorSlice.actions
+        inputOperator: (state, action: PayloadAction<{ operator: string }>) => {
+            const { operator } = action.payload;
+            if (state.operator === null) {
+                state.previousValue = state.currentValue;
+            } else {
+                state.previousValue = evaluate(
+                    state.previousValue!,
+                    state.currentValue!,
+                    state.operator
+                );
+            }
+            state.currentValue = "0";
+            state.displayValue = state.previousValue!;
+            state.operator = operator;
+        },
+        calculateResult: (state) => {
+            if (state.operator !== null) {
+                state.displayValue = evaluate(
+                    state.previousValue!,
+                    state.currentValue,
+                    state.operator
+                );
+                state.currentValue = state.displayValue;
+                state.previousValue = null;
+                state.operator = null;
+            }
+        },
+        clearCalculator: (state) => {
+            state.displayValue = "0";
+            state.operator = null;
+            state.previousValue = null;
+            state.currentValue = "0";
+        },
+    },
+});
 
-export default calculatorSlice.reducer
+export const {
+    inputDigit,
+    inputDecimal,
+    calculateResult,
+    inputOperator,
+    clearCalculator
+} = calculatorSlice.actions;
+
+export default calculatorSlice.reducer;
+
