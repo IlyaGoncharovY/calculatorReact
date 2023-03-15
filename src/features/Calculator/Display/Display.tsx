@@ -1,24 +1,16 @@
-import React, {FC, RefObject} from 'react';
+import React from 'react';
 import {useAppSelector} from "../../../app/hooks";
 
+const Display = () => {
 
-interface DisplayType {
-    inputValue: string
-    inputRef: RefObject<HTMLInputElement>
-}
-
-const Display: FC<DisplayType> = ({inputValue, inputRef}) => {
-
-    const results = useAppSelector(state => state.calculatorReducer.results)
+    const displayValue = useAppSelector(state => state.calculatorReducer.displayValue)
 
     return (
         <div>
-            <input type={"text"}
-                   // ref={inputRef}
-                   // defaultValue={inputValue}
-
-                   value={results}
-            />
+            {/*<input type={"text"}*/}
+            {/*       value={displayValue === "Infinity"? "Не определено" : displayValue}*/}
+            {/*/>*/}
+            {displayValue === "Infinity" ? "Не определено" : displayValue}
         </div>
     );
 };

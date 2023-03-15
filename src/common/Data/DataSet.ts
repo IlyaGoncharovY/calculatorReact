@@ -11,6 +11,7 @@ export const Expression: ExpressionType[] = [
     {value: "x"},
     {value: "-"},
     {value: "+"},
+    {value: "CE"},
 ]
 
 export const Buttons: ButtonsType[] = [
