@@ -119,3 +119,104 @@ export const EqualButton = styled(ButtonDefault)`
   
   background: #5D5FEF;
 `
+export const ChangeModeWrapper = styled.section`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1px;
+
+  position: absolute;
+  width: 243px;
+  height: 38px;
+  left: 372px;
+  top: 38px;
+
+  background: #F3F4F6;
+  border-radius: 6px;
+`
+export const RuntimeButton = styled(ButtonDefault)`
+  padding: 8px 12px;
+  gap: 10px;
+  
+  width: 108px;
+  height: 36px;
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`
+export const ConstructorButton = styled(ButtonDefault)`
+  padding: 8px 12px;
+  gap: 10px;
+
+  width: 133px;
+  height: 36px;
+
+  background: #FFFFFF;
+  border: 1px solid #E2E3E5;
+  
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+`
+export const CanvasWrapper = styled.section`
+  box-sizing: border-box;
+  
+  position: absolute;
+  width: 243px;
+  height: 448px;
+  left: 372px;
+  top: 106px;
+
+  border: 2px dashed #C4C4C4;
+  border-radius: 6px;
+`
+export const InstructionContainer = styled.section`
+  position: absolute;
+  width: 127px;
+  height: 84px;
+  left: calc(50% - 127px/2);
+  top: calc(50% - 84px/2);
+`
+export const InstructionLabel = styled.section`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 53px;
+  top: 1px;
+`
+export const TitleUp = styled.section`
+  /* Перетащите сюда */
+  position: absolute;
+  width: 127px;
+  height: 17px;
+  left: 0px;
+  top: 33px;
+
+  //font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  text-align: center;
+  /* Iris/100 */
+  color: #5D5FEF;
+`
+export const TitleDown = styled.section`
+  /* любой элемент из левой панели */
+  position: absolute;
+  width: 106px;
+  height: 30px;
+  left: 10px;
+  top: 54px;
+
+  //font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+
+  color: #6B7280;
+`
