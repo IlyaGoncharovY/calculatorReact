@@ -1,5 +1,6 @@
 import React from 'react';
 import {useAppSelector} from "../../../app/hooks";
+import {Input} from "../../../styled/styled";
 
 const Display = () => {
 
@@ -7,10 +8,7 @@ const Display = () => {
 
     return (
         <div>
-            {/*<input type={"text"}*/}
-            {/*       value={displayValue === "Infinity"? "Не определено" : displayValue}*/}
-            {/*/>*/}
-            {displayValue === "Infinity" ? "Не определено" : displayValue}
+            <Input>{displayValue === "Infinity" ? "Не определено" : displayValue}</Input>
         </div>
     );
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import {Buttons} from "../../../common/Data/DataSet";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
-import {inputDecimal, inputDigit} from "../../../BLL/calculatorSlice";
+import {inputDecimal, inputDigit} from "../../../bll/calculatorSlice";
+import {Button, ButtonsContainer} from "../../../styled/styled";
 
 const ButtonsBar = () => {
 
@@ -15,15 +16,16 @@ const ButtonsBar = () => {
     }
 
     return (
-        <div>
+        <ButtonsContainer>
             {Buttons.map((el, index) =>
-                <button
+                <Button
                     value={el.value}
                     key={index}
                     onClick={() => tapeNumber(el.value)}
-                >{el.value}</button>
+                    theme={el.value === "0" ? {width: "150px"}: {width: "73px"}}
+                >{el.value}</Button>
             )}
-        </div>
+        </ButtonsContainer>
     );
 };
 

@@ -1,5 +1,5 @@
 import {Action, combineReducers, configureStore, ThunkAction} from '@reduxjs/toolkit';
-import calculatorReducer from "../BLL/calculatorSlice"
+import calculatorReducer from "../bll/calculatorSlice"
 
 
 const rootReducer = combineReducers({

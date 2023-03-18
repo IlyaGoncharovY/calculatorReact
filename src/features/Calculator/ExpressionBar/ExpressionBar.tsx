@@ -1,7 +1,8 @@
 import React from 'react';
 import {Expression} from "../../../common/Data/DataSet";
 import {useAppDispatch} from "../../../app/hooks";
-import {clearCalculator, inputOperator} from "../../../BLL/calculatorSlice";
+import {clearCalculator, inputOperator} from "../../../bll/calculatorSlice";
+import {ExpressionButton, ExpressionContainer} from "../../../styled/styled";
 
 
 const ExpressionBar = () => {
@@ -14,16 +15,16 @@ const ExpressionBar = () => {
     }
 
     return (
-        <div>
+        <ExpressionContainer>
             {Expression.map((el, index) =>
-                <button
+                <ExpressionButton
                     key={index}
                     onClick={() => tapeExpression(el.value)}
                 >
                     {el.value}
-                </button>
+                </ExpressionButton>
             )}
-        </div>
+        </ExpressionContainer>
     );
 };
 

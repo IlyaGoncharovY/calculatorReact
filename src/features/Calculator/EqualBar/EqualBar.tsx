@@ -1,6 +1,7 @@
 import React from 'react';
 import {useAppDispatch} from "../../../app/hooks";
-import {calculateResult} from "../../../BLL/calculatorSlice";
+import {calculateResult} from "../../../bll/calculatorSlice";
+import {EqualButton} from "../../../styled/styled";
 
 const EqualBar = () => {
 
@@ -12,9 +13,9 @@ const EqualBar = () => {
 
     return (
         <div>
-            <button onClick={tapeEqual}>
+            <EqualButton onClick={tapeEqual}>
                 =
-            </button>
+            </EqualButton>
         </div>
     );
 };

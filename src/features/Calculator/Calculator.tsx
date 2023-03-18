@@ -3,16 +3,29 @@ import Display from "./Display/Display";
 import ExpressionBar from "./ExpressionBar/ExpressionBar";
 import ButtonsBar from "./ButtonsBar/ButtonsBar";
 import EqualBar from "./EqualBar/EqualBar";
+import {ButtonsWrapper, EqualWrapper, ExpressionWrapper, InputWrapper, Wrapper} from "../../styled/styled";
 
 const Calculator = () => {
 
     return (
-        <div>
-            <Display/>
-            <ExpressionBar/>
-            <ButtonsBar/>
-            <EqualBar/>
-        </div>
+        <Wrapper>
+            <InputWrapper>
+                <Display/>
+            </InputWrapper>
+
+            <ExpressionWrapper>
+                <ExpressionBar/>
+            </ExpressionWrapper>
+
+            <ButtonsWrapper>
+                <ButtonsBar/>
+            </ButtonsWrapper>
+
+            <EqualWrapper>
+                <EqualBar/>
+            </EqualWrapper>
+
+        </Wrapper>
     );
 };
 
