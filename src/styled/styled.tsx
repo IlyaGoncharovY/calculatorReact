@@ -9,6 +9,10 @@ const ButtonDefault = styled.button`
   align-items: center;
 
   border-radius: 6px;
+
+  &:hover {
+    border: 1px solid blue;
+  }
 `
 
 const WrapperDefault = styled.section`
