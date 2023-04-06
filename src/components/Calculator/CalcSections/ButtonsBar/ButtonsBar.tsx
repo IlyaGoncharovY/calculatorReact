@@ -1,10 +1,10 @@
 import React from 'react';
-import {Buttons} from "../../common/Data/DataSet";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {inputDecimal, inputDigit} from "../../bll/calculatorSlice";
-import {Button, ButtonsContainer, ButtonsWrapper} from "../../styled/styled";
+import {Buttons} from "../../../../common/Data/DataSet";
+import {useAppDispatch, useAppSelector} from "../../../../app/hooks";
+import {inputDecimal, inputDigit} from "../../../../bll/calculatorSlice";
+import {Button, ButtonsContainer, ButtonsWrapper} from "../../../../styled/styled";
 
-const ButtonsBar = () => {
+export const ButtonsBar = () => {
 
     const displayValue = useAppSelector(state => state.calculatorReducer.displayValue)
     const dispatch = useAppDispatch()
@@ -32,4 +32,3 @@ const ButtonsBar = () => {
     );
 };
 
-export default ButtonsBar;

@@ -1,11 +1,11 @@
 import React from 'react';
-import {Expression} from "../../common/Data/DataSet";
-import {useAppDispatch} from "../../app/hooks";
-import {clearCalculator, inputOperator} from "../../bll/calculatorSlice";
-import {ExpressionButton, ExpressionContainer, ExpressionWrapper} from "../../styled/styled";
+import {Expression} from "../../../../common/Data/DataSet";
+import {useAppDispatch} from "../../../../app/hooks";
+import {clearCalculator, inputOperator} from "../../../../bll/calculatorSlice";
+import {ExpressionButton, ExpressionContainer, ExpressionWrapper} from "../../../../styled/styled";
 
 
-const ExpressionBar = () => {
+export const ExpressionBar = () => {
 
     const dispatch = useAppDispatch();
 
@@ -31,5 +31,5 @@ const ExpressionBar = () => {
     );
 };
 
-export default ExpressionBar;
+
 

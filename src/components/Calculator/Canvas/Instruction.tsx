@@ -1,5 +1,5 @@
 import React from 'react';
-import {InstructionContainer, InstructionLabel, TitleDown, TitleUp} from "../../styled/styled";
+import {InstructionContainer, InstructionLabel, TitleDown, TitleUp} from "../../../styled/styled";
 
 const Instruction = () => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ChangeModeWrapper, ConstructorButton, RuntimeButton} from "../../styled/styled";
+import {ChangeModeWrapper, ConstructorButton, RuntimeButton} from "../../../styled/styled";
 
 const ChangeMode = () => {
     return (

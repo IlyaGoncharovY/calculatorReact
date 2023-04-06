@@ -1,9 +1,9 @@
 import React from 'react';
-import {useAppDispatch} from "../../app/hooks";
-import {calculateResult} from "../../bll/calculatorSlice";
-import {EqualButton, EqualWrapper} from "../../styled/styled";
+import {useAppDispatch} from "../../../../app/hooks";
+import {calculateResult} from "../../../../bll/calculatorSlice";
+import {EqualButton, EqualWrapper} from "../../../../styled/styled";
 
-const EqualBar = () => {
+export const EqualBar = () => {
 
     const dispatch = useAppDispatch()
 
@@ -20,4 +20,3 @@ const EqualBar = () => {
     );
 };
 
-export default EqualBar;
